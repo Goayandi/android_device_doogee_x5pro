@@ -9,7 +9,7 @@ TARGET_SCREEN_HEIGHT := 1280
 
 # Release name
 PRODUCT_RELEASE_NAME := x5pro
-PRODUCT_NAME := cm_x5pro
+PRODUCT_NAME := lineage_x5pro
 PRODUCT_MODEL := x5pro
 PRODUCT_DEVICE := x5pro
 PRODUCT_MANUFACTURER := doogee
