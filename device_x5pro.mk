@@ -159,7 +159,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     	dalvik.vm.image-dex2oat-threads=4
 
 $(call inherit-product, vendor/doogee/x5pro/x5pro-vendor.mk)
-$(call inherit-product, vendor/google/build/opengapps-packages.mk)
+ifneq ($(WITH_GAPPS),)
+$(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
+endif
 
 # Mediatek stuff
 PRODUCT_BOOT_JARS += \
