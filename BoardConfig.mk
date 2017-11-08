@@ -349,7 +349,6 @@ BLOCK_BASED_OTA := false
 # recovery
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness\"
 
-
 # twrp
 ifneq ($(WITH_TWRP),)
 RECOVERY_VARIANT := twrp
@@ -358,7 +357,7 @@ RECOVERY_GRAPHICS_USE_LINELENGTH := true
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_SECURE_ERASE :=  true
 
-TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
+TW_BRIGHTNESS_PATH := /sys/devices/mtk_leds@bus/leds/lcd-backlight/brightness
 TW_DEFAULT_EXTERNAL_STORAGE := true
 TW_EXTERNAL_STORAGE_PATH := "/sdcard"
 TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
@@ -367,15 +366,11 @@ TW_INCLUDE_CRYPTO := true
 TW_INTERNAL_STORAGE_PATH := "/data/media"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
 TW_MAX_BRIGHTNESS := 255
-TW_NO_CPU_TEMP := true
 TW_THEME := portrait_hdpi
 
-TARGET_RECOVERY_FSTAB := device/doogee/x5pro/recovery/root/fstab.mt6735
+TARGET_RECOVERY_FSTAB := device/doogee/x5pro/rootdir/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USERIMAGES_USE_F2FS:=true
-
-#TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-#TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
 endif

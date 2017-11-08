@@ -58,7 +58,6 @@ PRODUCT_COPY_FILES += \
 	device/doogee/x5pro/rootdir/init.mt6735.usb.rc:root/init.mt6735.usb.rc \
 	device/doogee/x5pro/rootdir/init.project.rc:root/init.project.rc \
 	device/doogee/x5pro/rootdir/init.modem.rc:root/init.modem.rc \
-	device/doogee/x5pro/recovery/root/fstab.mt6735:root/fstab.mt6735  \
 	device/doogee/x5pro/rootdir/ueventd.rc:root/ueventd.rc \
 	device/doogee/x5pro/rootdir/factory_init.rc:root/factory_init.rc \
 	device/doogee/x5pro/rootdir/factory_init.project.rc:root/factory_init.project.rc \
@@ -66,9 +65,6 @@ PRODUCT_COPY_FILES += \
 	device/doogee/x5pro/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
 	device/doogee/x5pro/rootdir/meta_init.rc:root/meta_init.rc \
 	device/doogee/x5pro/rootdir/enableswap.sh:root/enableswap.sh
-
-# TWRP thanks to Hanuma50
-# PRODUCT_COPY_FILES += device/doogee/x5pro/recovery/twrp.fstab:recovery/root/etc/twrp.fstab
 
 # hardware specifics
 PRODUCT_COPY_FILES += \
