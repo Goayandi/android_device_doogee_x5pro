@@ -1,93 +1,64 @@
-#!/bin/sh
+#!/bin/bash
+#
+# Copyright (C) 2016 The CyanogenMod Project
+# Copyright (C) 2017 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
 
-## usage: extract-files.sh $1 $2
-## $1 and $2 are optional
-## if $1 = unzip the files will be extracted from zip file (if $1 = anything else 'adb pull' will be used
-## $2 specifies the zip file to extract from (default = ../../../${DEVICE}_update.zip)
+set -e
 
-VENDOR=doogee
 DEVICE=x5pro
+VENDOR=doogee
 
-BASE=../../../vendor/$VENDOR/$DEVICE/proprietary
-rm -rf $BASE/*
+# Load extract_utils and do some sanity checks
+MY_DIR="${BASH_SOURCE%/*}"
+if [[ ! -d "$MY_DIR" ]]; then MY_DIR="$PWD"; fi
 
-if [ -z "$2" ]; then
-	ZIPFILE=../../../${DEVICE}_update.zip
-else
-	ZIPFILE=$2
+CM_ROOT="$MY_DIR"/../../..
+
+HELPER="$CM_ROOT"/vendor/cm/build/tools/extract_utils.sh
+if [ ! -f "$HELPER" ]; then
+    echo "Unable to find helper script at $HELPER"
+    exit 1
+fi
+. "$HELPER"
+
+# Default to sanitizing the vendor folder before extraction
+CLEAN_VENDOR=true
+
+while [ "$1" != "" ]; do
+    case $1 in
+        -p | --path )           shift
+                                SRC=$1
+                                ;;
+        -s | --section )        shift
+                                SECTION=$1
+                                CLEAN_VENDOR=false
+                                ;;
+        -n | --no-cleanup )     CLEAN_VENDOR=false
+                                ;;
+    esac
+    shift
+done
+
+if [ -z "$SRC" ]; then
+    SRC=adb
 fi
 
-if [ "$1" = "unzip" -a ! -e $ZIPFILE ]; then
-	echo $ZIPFILE does not exist.
-else
-	for FILE in `cat proprietary-files.txt | grep -v ^# | grep -v ^$`; do
-		DIR=`dirname $FILE`
-		if [ ! -d $BASE/$DIR ]; then
-			mkdir -p $BASE/$DIR
-		fi
-		if [ "$1" = "unzip" ]; then
-			unzip -j -o $ZIPFILE $FILE -d $BASE/$DIR
-		else
-			adb pull $FILE $BASE/$FILE
-		fi
-	done
+# Initialize the helper
+setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT" false "$CLEAN_VENDOR"
 
-	deodex_list=$(cat proprietary-deodex-files.txt | grep -v ^# | grep -v ^$)
-	if [ -n "${deodex_list}" ]; then
-		BASE=$(realpath $BASE)
-		ZIPFILE=$(realpath $ZIPFILE)
-		FRAMEWORK_TEMP_DIR=$(mktemp -d)
-		mkdir -p "${FRAMEWORK_TEMP_DIR}"/system
-		mkdir -p "${FRAMEWORK_TEMP_DIR}"/system/smali
-		if [ "$1" = "unzip" ]; then
-			unzip  -o $ZIPFILE system/framework/* -d "${FRAMEWORK_TEMP_DIR}"
-		else
-			adb pull system/framework "${FRAMEWORK_TEMP_DIR}"
-		fi
+extract "$MY_DIR"/proprietary-files.txt "$SRC" "$SECTION"
 
-		pushd "${FRAMEWORK_TEMP_DIR}"/system
-		oat2dex devfw framework/
-		echo '#######################'
-		echo '# Ignore above steps! #'
-		echo '#######################'
-		for FILE in $deodex_list; do
-			DIR=`dirname $FILE`
-			APK_NAME=`basename $FILE`
-			FILENAME="${APK_NAME%.*}"
-			if [ ! -d "$BASE/$DIR" ]; then
-				mkdir -p "$BASE/$DIR"
-			fi
-
-			if [ "${DIR}" = "system/framework" ]; then
-				echo Processing Java library "${APK_NAME}"
-
-				TARGET_DIR=boot-jar-result
-				if [ ! -f boot-jar-result/"${APK_NAME}" ]; then
-					TARGET_DIR=framework-jar-with-dex
-				fi
-
-				cp "${TARGET_DIR}"/"${APK_NAME}" "$BASE/$DIR"
-			else
-				if [ "$1" = "unzip" ]; then
-					unzip -o $ZIPFILE "$DIR"/* -d "${FRAMEWORK_TEMP_DIR}"
-				else
-					adb pull "$DIR" "${FRAMEWORK_TEMP_DIR}"
-				fi
-
-				oat2dex ../"${DIR}"/arm/"${FILENAME}".odex odex/
-				baksmali -a 22 -x ../"${DIR}"/arm/"${FILENAME}".dex -d framework/ -o smali/
-				smali smali/ -o classes.dex
-				zip -gjq ../"${FILE}" classes.dex
-				cp ../"${FILE}" "$BASE/$DIR"
-
-				rm -r smali/*
-				rm classes.dex
-			fi
-		done
-		popd
-
-		rm -r "${FRAMEWORK_TEMP_DIR}"/*
-		rmdir "${FRAMEWORK_TEMP_DIR}"
-	fi
-fi
-./setup-makefiles.sh
+"$MY_DIR"/setup-makefiles.sh
