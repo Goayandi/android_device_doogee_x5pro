@@ -1,3 +1,26 @@
+#
+# Copyright (C) 2017 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+#
+# This file sets variables that control the way modules are built
+# thorughout the system. It should not be used to conditionally
+# disable makefiles (the proper mechanism to control what gets
+# included in a build is to use PRODUCT_PACKAGES in a product
+# definition file).
+#
+
 # include proprietary libraries and binaries
 -include vendor/doogee/x5pro/BoardConfigVendor.mk
 
@@ -322,44 +345,35 @@ PRODUCT_PREBUILT_WEBVIEWCHROMIUM := no
 BLOCK_BASED_OTA := false
 
 # recovery
-#TARGET_RECOVERY_INITRC := device/ark/benefit_m7/recovery/init.mt6753.rc
-TARGET_RECOVERY_FSTAB := device/doogee/x5pro/recovery/root/fstab.mt6735
 TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness\"
 
-# use power button for selections in recovery
-BOARD_HAS_NO_SELECT_BUTTON := true
 
-# ________________________________________________TWRP_________________________________________________
-#RECOVERY_VARIANT := twrp
-
-TW_THEME := portrait_hdpi
-# brightness settings (needs verification)
-TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness/
-TW_MAX_BRIGHTNESS := 255
-# may be useful if we get graphical glitches
+# twrp
+ifneq ($(WITH_TWRP),)
+RECOVERY_VARIANT := twrp
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
-# in case of wrong color this needs modification
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-# if sdcard0 is a /data/media emulated one
-RECOVERY_SDCARD_ON_DATA := true
-# ntfs support? (needs much space..)
-TW_INCLUDE_NTFS_3G := true
-# we may need that if sdcard0 dont work
-TW_FLASH_FROM_STORAGE := true
-TW_EXTERNAL_STORAGE_PATH := "/external_sd"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "external_sd"
-TW_DEFAULT_EXTERNAL_STORAGE := true
-# name backup folders 'p8000' and not after MTK's fake hardware ID '1234567...'
-TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
-# we have it and it's enforcing!
-TWHAVE_SELINUX := true
-#only add if kernel supports
-#TW_INCLUDE_FUSE_EXFAT := true
-#F2FS support (only activate if kernel supports)
-#TARGET_USERIMAGES_USE_F2FS:=true
-# encryption
-TW_INCLUDE_CRYPTO := true
-# Antiforensic wipe
+
+BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_SECURE_ERASE :=  true
-# CPU temp
-TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
+
+TW_BRIGHTNESS_PATH := /sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+TW_FLASH_FROM_STORAGE := true
+TW_INCLUDE_CRYPTO := true
+TW_INTERNAL_STORAGE_PATH := "/data/media"
+TW_INTERNAL_STORAGE_MOUNT_POINT := "data"
+TW_MAX_BRIGHTNESS := 255
+TW_NO_CPU_TEMP := true
+TW_THEME := portrait_hdpi
+
+TARGET_RECOVERY_FSTAB := device/doogee/x5pro/recovery/root/fstab.mt6735
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS:=true
+
+#TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+#TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone1/temp
+endif
