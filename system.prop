@@ -23,8 +23,8 @@ wifi.tethering.interface=ap0
 ro.opengles.version=196608
 
 wifi.direct.interface=p2p0
-dalvik.vm.heapgrowthlimit=256m
-dalvik.vm.heapsize=512m
+dalvik.vm.heapgrowthlimit=128m
+dalvik.vm.heapsize=256m
 
 # USB MTP WHQL
 ro.sys.usb.mtp.whql.enable=0
@@ -47,45 +47,45 @@ ro.audio.silent=0
 ro.zygote.preload.enable=0
 
 # temporary enables NAV bar (soft keys)
-# disable hw key default by hct chenxin
+
 qemu.hw.mainkeys=1
 
 ro.kernel.zio=38,108,105,16
 
-# Disable dirty region for Mali
-debug.hwui.render_dirty_regions=false
-
 ro.sf.lcd_density=320
 
+# performance
+ro.mtk_perf_simple_start_win=1
+ro.mtk_perf_fast_start_win=1
+ro.mtk_perf_response_time=1
+
+ro.setupwizard.suppress_d2d=true
+ro.setupwizard.suppress_d2d_nfc=true
 persist.sys.gestureonoff=false
-ro.config.mmstone = Aldebaran.ogg
-ro.config.ringtone=Ringtone_default.mp3
+ro.config.alarm_alert=Hassium.ogg
+ro.config.ringtone=Ringtone_default.ogg
 ro.config.notification_sound=Notification_bamboo.ogg
 
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
-ro.com.android.dateformat=MM-dd-yyyy
 ro.config.ringtone=Ring_Synth_04.ogg
+ro.config.ringtone_sim2=Carina.ogg
 ro.config.notification_sound=pixiedust.ogg
 ro.carrier=unknown
 ro.config.alarm_alert=Alarm_Classic.ogg
 ro.mediatek.chip_ver=S01
-ro.mediatek.version.release=DOOGEE-X5pro-Android5.1-R15-2016.03.16
 ro.mediatek.platform=MT6735
 ro.telephony.sim.count=2
 persist.radio.default.sim=0
 persist.radio.multisim.config=dsds
-persist.md.perm.checked=to_upgrade
 persist.gemini.sim_num=2
 ro.gemini.smart_sim_switch=false
 ril.specific.sm_cause=0
 bgw.current3gband=0
 ril.external.md=0
-ro.btstack=blueangel
 ro.sf.hwrotation=0
-ril.current.share_modem=2
-curlockscreen=1
+curlockscreen=0
 ro.mediatek.gemini_support=true
 persist.radio.fd.counter=15
 persist.radio.fd.off.counter=5
@@ -99,20 +99,22 @@ ril.telephony.mode=0
 dalvik.vm.mtk-stack-trace-file=/data/anr/mtk_traces.txt
 mediatek.wlan.chip=CONSYS_MT6735
 mediatek.wlan.module.postfix=_consys_mt6735
+ril.read.imsi=1
 ril.radiooff.poweroffMD=0
-ro.frp.pst=/dev/block/platform/mtk-msdc.0/by-name/frp
-ro.mediatek.version.branch=L1.MP3.EE.WFC.DEV
-ro.mediatek.version.sdk=4
+ro.frp.pst=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/frp
+ro.sys.usb.storage.type=mtp,mass_storage
 ro.mtk_gemini_support=1
+persist.radio.gemini_support=1
+ril.current.share_modem=2
 ro.mtk_audio_profiles=1
 ro.mtk_audenh_support=1
 ro.mtk_besloudness_support=1
 ro.mtk_bessurround_support=1
-ro.mtk_gemini_enhancement=1
 ro.mtk_wapi_support=1
 ro.mtk_bt_support=1
 ro.mtk_wappush_support=1
 ro.mtk_agps_app=1
+ro.mtk_audio_tuning_tool_ver=V1
 ro.mtk_wlan_support=1
 ro.mtk_gps_support=1
 ro.mtk_omacp_support=1
@@ -122,7 +124,6 @@ ro.mtk_dhcpv6c_wifi=1
 ro.have_aacencode_feature=1
 ro.mtk_fd_support=1
 ro.mtk_oma_drm_support=1
-ro.mtk_cta_drm_support=1
 ro.mtk_widevine_drm_l3_support=1
 ro.mtk_eap_sim_aka=1
 ro.mtk_fm_recording_support=1
@@ -133,7 +134,6 @@ ro.mtk_send_rr_support=1
 ro.mtk_emmc_support=1
 ro.mtk_tetheringipv6_support=1
 ro.mtk_shared_sdcard=1
-ro.mtk_2sdcard_swap=1
 ro.mtk_enable_md1=1
 ro.mtk_flight_mode_power_off_md=1
 ro.mtk_pq_support=2
@@ -143,51 +143,49 @@ ro.mtk_sim_hot_swap=1
 ro.mtk_thumbnail_play_support=1
 ro.mtk_bip_scws=1
 ro.mtk_gmo_ram_optimize=1
-ro.mtk_gmo_rom_optimize=1
 ro.mtk_world_phone_policy=0
 ro.mtk_perfservice_support=1
-ro.mtk_cta_set=1
-ro.mtk_mobile_management=1
+ro.mtk_owner_sdcard_support=1
 ro.mtk_antibricking_level=2
 ro.mtk_cam_mfb_support=0
 ro.mtk_lte_support=1
-ro.mtk_cam_mav_support=1
+ro.mtk_rild_read_imsi=1
 ro.sim_refresh_reset_by_modem=1
-ro.mtk_live_photo_support=1
-ro.mtk_motion_track_support=1
+ro.mtk_passpoint_r1_support=1
 ro.mtk_bg_power_saving_support=1
 ro.mtk_bg_power_saving_ui=1
 ro.have_aee_feature=1
 ro.sim_me_lock_mode=0
+ro.mtk_dual_mic_support=0
+ro.mtk_is_tablet=0
 wfd.dummy.enable=1
-ro.mediatek.project.path=device/haocheng/hct6735m_35gu_l
 persist.mtk.wcn.combo.chipid=-1
 service.wcn.driver.ready=no
+service.wcn.coredump.mode=2
 ro.com.android.mobiledata=false
 persist.radio.mobile.data=0,0
 persist.meta.dumpdata=0
-persist.sys.timezone=Europe/London
-ro.custom.version.release=R15
-ro.default.volume.adjust=true
-ro.custom.build.product=t93bm-dg-a37-33pgu-hd-128g16g-fdd137820-bom68
-ro.hct_support_applock=1
+ro.mtk_hetcomm_support=1
+ro.mtk_deinterlace_support=1
+mtk.vdec.waitkeyframeforplay=1
 ro.hct_extra_ringtone_show_more=1
-ro.hct_nubia_gesture_doogee=1
+ro.hct_multi_finger_gesture=1
 ro.hct_no_browser_navigation=1
-ro.hct_alarm_no_mute=1
+ro.hct_quick_flashlight=1
+ro.hct_support_applock=1
+persist.sys.fontsize=2
+ro.hct_support_screenrecord=1
+ro.hct_screen_shot=1
+ro.gangyun_camera_beauty=1
+ro.hct_floatview=1
 ro.com.google.clientidbase=android
 ro.com.google.clientidbase.am=android
+ro.com.google.clientidbase.yt=android
+ro.com.google.clientidbase.ms=android
+ro.com.google.clientidbase.gmm=android
 ro.setupwizard.mode=OPTIONAL
-ro.com.google.gmsversion=5.1_r2
-persist.sys.dalvik.vm.lib.2=libart.so
+persist.sys.dalvik.vm.lib.2=libart
+dalvik.vm.isa.arm.variant=cortex-a53
 dalvik.vm.isa.arm.features=default
 net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
-
-# begin fota properties
-#ro.fota.platform=MTK6735_5.1
-#ro.fota.type=phone
-#ro.fota.oem=hct6735_5.1
-#ro.fota.device=t93bm-dg-a37-33pgu-hd-128g16g-fdd137820-bom68
-#ro.fota.version=DOOGEE-X5pro-Android5.1-R15-2016.03.16
-# end fota properties
