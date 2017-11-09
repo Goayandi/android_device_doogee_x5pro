@@ -24,46 +24,44 @@
 # include proprietary libraries and binaries
 -include vendor/doogee/x5pro/BoardConfigVendor.mk
 
+# TODO: make conditional
 # Dex preoptimization
 WITH_DEXPREOPT := true
 
 # use these headers 
 TARGET_SPECIFIC_HEADER_PATH := device/doogee/x5pro/include
- 
+
 # Link against libxlog
 TARGET_LDPRELOAD += libxlog.so
- 
+
 # Bootloader
+TARGET_BOARD_PLATFORM := mt6735m
 TARGET_BOOTLOADER_BOARD_NAME := mt6735m
 TARGET_NO_BOOTLOADER := true
- 
+
 # Architecture
 TARGET_ARCH := arm
-TARGET_NO_BOOTLOADER := true
-TARGET_BOARD_PLATFORM := mt6735m
+TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_ABI := armeabi-v7a
 TARGET_CPU_ABI2 := armeabi
-TARGET_ARCH_VARIANT := armv7-a-neon
+TARGET_CPU_CORTEX_A53 := true
+TARGET_CPU_SMP := true
 TARGET_CPU_VARIANT := cortex-a53
 
 ARCH_ARM_HAVE_NEON := true
+ARCH_ARM_HAVE_TLS_REGISTER := true
 ARCH_ARM_HAVE_VFP := true
 
-ARCH_ARM_HAVE_TLS_REGISTER := true
-TARGET_CPU_SMP := true
 TARGET_USES_64_BIT_BINDER := false
-TARGET_CPU_CORTEX_A53 := true
-
-TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_NO_FACTORYIMAGE := true
 
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
- 
+
+# Kernel
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,32N2 androidboot.selinux=permissive
 BOARD_KERNEL_BASE := 0x40000000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_RAMDISK_OFFSET := 0x4000000
- 
+
 #extracted from /proc/partinfo
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
@@ -75,19 +73,7 @@ BOARD_CACHEIMAGE_PARTITION_SIZE := 419430400
 BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset 0x0e000000
 
-# experimental
-TARGET_REQUIRES_SYNCHRONOUS_SETSURFACE := true
- 
-# build kernel from source
-#TARGET_KERNEL_SOURCE := kernel/ark/benefit_m7
-#TARGET_KERNEL_ARCH := arm64
-#TARGET_KERNEL_HEADER_ARCH := arm64
-#TARGET_KERNEL_CONFIG := p8000_defconfig
-#TARGET_KERNEL_CROSS_COMPILE_PREFIX := aarch64-linux-android-
-#MTK_APPENDED_DTB_SUPPORT := yes
-#BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
-
-# prebuild kernel as fallback
+# Use prebuild kernel for now
 TARGET_PREBUILT_KERNEL := device/doogee/x5pro/prebuilt/kernel
 
 # Build an EXT4 ROM image
@@ -96,9 +82,6 @@ TARGET_NO_FACTORYIMAGE := true
 
 # system.prop
 TARGET_SYSTEM_PROP := device/doogee/x5pro/system.prop
-
-# CyanogenMod Hardware Hooks
-BOARD_HARDWARE_CLASS := device/doogee/x5pro/cmhw/
 
 # WiFi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -123,17 +106,19 @@ BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/doogee/x5pro/bluetooth
 
+# Fingerprint Sensor
+VANZO_FEATURE_ADD_SILEADINC_FP := yes
+VANZO_FEATURE_FACTORYMODE_USE_ENGLISH := yes
+
+# EGL settings
+BOARD_EGL_CFG := device/doogee/x5pro/egl.cfg
+BOARD_EGL_WORKAROUND_BUG_10194508 := true
+USE_OPENGL_RENDERER := true
+
 # GPS
 BOARD_GPS_LIBRARIES :=true
 BOARD_CONNECTIVITY_MODULE := conn_soc
 BOARD_MEDIATEK_USES_GPS := true
-
-# Camera
-USE_CAMERA_STUB := true
-
-# Audio
-TARGET_CPU_MEMCPY_OPT_DISABLE := true
-BOARD_USES_MTK_AUDIO := true
 
 # FM Radio
 MTK_FM_SUPPORT := yes
@@ -142,24 +127,6 @@ MTK_FM_RX_SUPPORT := yes
 # Mediatek flags
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
-
-# Fingerprint Sensor
-VANZO_FEATURE_ADD_SILEADINC_FP := yes
-VANZO_FEATURE_FACTORYMODE_USE_ENGLISH := yes
-
-# EGL settings
-USE_OPENGL_RENDERER := true
-BOARD_EGL_CFG := device/doogee/x5pro/egl.cfg
-BOARD_EGL_WORKAROUND_BUG_10194508 := true
-
-PRODUCT_PREBUILT_WEBVIEWCHROMIUM := no
-
-# Block based ota
-# see http://review.cyanogenmod.org/#/c/78849/1/core/Makefile
-BLOCK_BASED_OTA := false
-
-# recovery
-TARGET_RECOVERY_LCD_BACKLIGHT_PATH := \"/sys/devices/platform/leds-mt65xx/leds/lcd-backlight/brightness\"
 
 # twrp
 ifneq ($(WITH_TWRP),)
