@@ -4,6 +4,15 @@
 # This is a common source of Android security bugs.
 #
    
+
+on early-init
+    write /sys/class/net/ccmni0/queues/rx-0/rps_cpus "ff"
+    write /sys/class/net/ccmni1/queues/rx-0/rps_cpus "ff"
+    write /sys/class/net/ccmni2/queues/rx-0/rps_cpus "ff"
+    setprop net.perf.rps ff
+    setprop net.perf.cpu.core 4,4,0,0
+    setprop net.perf.cpu.freq 1144000,1144000,0,0
+
 on post-fs-data
 
     write /proc/bootprof "post-fs-data: on modem start"
@@ -24,6 +33,9 @@ on post-fs-data
     restorecon_recursive /protect_f
     restorecon_recursive /protect_s
     
+    # Encrypt phone function
+    setprop vold.post_fs_data_done 1
+
 service gsm0710muxd /system/bin/gsm0710muxd -s /dev/ttyC0 -f 512 -n 8 -m basic
     class core
     user root
@@ -58,6 +70,13 @@ service ril-daemon-mtk /system/bin/mtkrild
     socket rild-mtk-ut-2 stream 660 radio net_bt
     socket rild-mtk-modem stream 660 radio system
     socket rild-atci stream 660 root radio
+    socket rild-mal stream 660 radio system
+    socket rild-mal-at stream 660 radio system
+    socket rild-vsim stream 660 root radio
+    socket sap_uim_socket1 stream 660 bluetooth bluetooth
+    socket sap_uim_socket2 stream 660 bluetooth bluetooth
+    socket sap_uim_socket3 stream 660 bluetooth bluetooth
+    socket sap_uim_socket4 stream 660 bluetooth bluetooth
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log system
     disabled
@@ -73,6 +92,9 @@ service ril-daemon-mtkmd2 /system/bin/mtkrildmd2
     socket rild-mtk-ut-2-md2 stream 660 radio net_bt
     socket rild-mtk-modem-md2 stream 660 radio system
     socket rild-atci-md2 stream 660 root radio
+    socket rild-vsim-md2 stream 660 root radio
+    socket rild-mal-md2 stream 660 radio system
+    socket rild-mal-at-md2 stream 660 radio system
     user root
     group radio cache inet misc audio sdcard_r sdcard_rw log system
     disabled

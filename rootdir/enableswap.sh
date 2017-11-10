@@ -14,4 +14,4 @@ swapon /data/2ndswap
 chattr +i /data/2ndswap
 # Set swappiness
 echo 100 > /proc/sys/vm/swappiness
-echo 100 > /sys/fs/cgroup/memory/sw/memory.swappiness
+# echo 100 > /sys/fs/cgroup/memory/sw/memory.swappiness
