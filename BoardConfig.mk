@@ -124,6 +124,9 @@ MTK_FM_RX_SUPPORT := yes
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
 
+# Recovery
+TARGET_RECOVERY_FSTAB := device/doogee/x5pro/rootdir/system/etc/recovery.fstab
+
 # twrp
 ifneq ($(WITH_TWRP),)
 RECOVERY_VARIANT := twrp
