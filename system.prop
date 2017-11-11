@@ -189,3 +189,7 @@ dalvik.vm.isa.arm.variant=cortex-a53
 dalvik.vm.isa.arm.features=default
 net.bt.name=Android
 dalvik.vm.stack-trace-file=/data/anr/traces.txt
+
+# nS
+ro.telephony.ril_class=MT6735
+ro.telephony.ril.config=fakeiccid
