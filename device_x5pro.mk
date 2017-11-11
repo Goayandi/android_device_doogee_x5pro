@@ -83,10 +83,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/system/etc/fmr/mt6627_fm_cust.cfg:system/etc/fmr/mt6627_fm_cust.cfg
 
-# GPS
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rootdir/system/etc/agps_profiles_conf2.xml:system/etc/agps_profiles_conf2.xml
-
 # Media
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/system/etc/media_codecs.xml:system/etc/media_codecs.xml \
@@ -101,12 +97,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/system/etc/ecc_list.xml:system/etc/ecc_list.xml \
 	$(LOCAL_PATH)/rootdir/system/etc/spn-conf.xml:system/etc/spn-conf.xml
-
-# Thermal
-PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/rootdir/system/etc/.ht120.mtc:system/etc/.tp/.ht120.mtc \
-	$(LOCAL_PATH)/rootdir/system/etc/thermal.conf:system/etc/.tp/thermal.conf \
-	$(LOCAL_PATH)/rootdir/system/etc/thermal.off.conf:system/etc/.tp/thermal.off.conf
 
 # Wifi
 PRODUCT_PACKAGES += \
@@ -155,3 +145,5 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	persist.service.acm.enable=0 \
 	ro.oem_unlock_supported=1 \
 	persist.sys.usb.config=mtp
+
+$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
