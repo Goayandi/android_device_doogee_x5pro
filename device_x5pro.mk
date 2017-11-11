@@ -146,6 +146,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 	dalvik.vm.dex2oat-threads=2 \
 	dalvik.vm.image-dex2oat-threads=4
 
+ifdef USE_DEV_CERTIFICATE
+	PRODUCT_DEFAULT_DEV_CERTIFICATE := $(USE_DEV_CERTIFICATE)
+endif
+
 $(call inherit-product, vendor/doogee/x5pro/x5pro-vendor.mk)
 ifneq ($(WITH_GAPPS),)
 $(call inherit-product, vendor/opengapps/build/opengapps-packages.mk)
