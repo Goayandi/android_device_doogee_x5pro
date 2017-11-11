@@ -146,4 +146,6 @@ ADDITIONAL_DEFAULT_PROPERTIES += \
 	ro.oem_unlock_supported=1 \
 	persist.sys.usb.config=mtp
 
+ifneq ($(OUT),)
 $(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+endif
