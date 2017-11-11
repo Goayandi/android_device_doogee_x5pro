@@ -68,10 +68,19 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
 	frameworks/native/data/etc/handheld_core_hardware.xml:system/etc/permissions/handheld_core_hardware.xml
 
+# Audio
+PRODUCT_PACKAGES += \
+	audio.a2dp.default \
+	libtinyxml
+
 # Camera/Torch
 PRODUCT_PACKAGES += \
 	Snap \
 	Torch
+
+# GPS
+PRODUCT_PACKAGES += \
+	libcurl
 
 # FM Radio
 PRODUCT_PACKAGES += \
@@ -82,6 +91,11 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/rootdir/system/etc/fmr/mt6627_fm_cust.cfg:system/etc/fmr/mt6627_fm_cust.cfg
+
+# libion
+PRODUCT_PACKAGES += \
+	libion \
+	libtinycompress
 
 # Media
 PRODUCT_COPY_FILES += \

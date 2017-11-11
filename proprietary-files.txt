@@ -3,7 +3,7 @@ xbin/mnld
 xbin/BGW
 bin/mtkrildmd2
 bin/xlog
-bin/uiautomator
+#bin/uiautomator
 bin/AcdApiDaemon
 bin/6620_wmt_lpbk
 bin/muxreport
@@ -31,7 +31,7 @@ bin/wmt_loader
 bin/md_ctrl
 bin/lcdc_screen_cap
 bin/gsm0710muxdmd2
-bin/pppd
+#bin/pppd
 bin/akmd8963
 bin/orientationd
 bin/program_binary_service
@@ -49,7 +49,7 @@ bin/wifi2agps
 bin/memsicd
 bin/ccci_fsd
 bin/s62xd
-lib/libtinycompress.so
+#lib/libtinycompress.so
 lib/libMtkOmxFlacDec.so
 lib/libcam.camadapter.so
 lib/libcameracustom.so
@@ -73,7 +73,7 @@ lib/libvcodecdrv.so
 lib/libstagefrighthw.so
 lib/libui_ext.so
 lib/libh264enc_sa.ca7.so
-lib/libion.so
+#lib/libion.so
 lib/libfeatureio.so
 lib/libaudiocomponentengine.so
 lib/egl/libGLES_mali.so
@@ -86,7 +86,7 @@ lib/libgralloc_extra.so
 lib/libmtcloader.so
 lib/mtk-ril.so
 lib/libcam_utils.so
-lib/libwebrtc_audio_preprocessing.so
+#lib/libwebrtc_audio_preprocessing.so
 lib/libdpframework.so
 lib/libbwc.so
 lib/libmnl.so
@@ -101,7 +101,7 @@ lib/libcam3_utils.so
 lib/libdrmmtkutil.so
 lib/libspeech_enh_lib.so
 lib/libmatv_cust.so
-lib/libtinyxml.so
+#lib/libtinyxml.so
 lib/libfile_op.so
 lib/libcam.metadata.so
 lib/libcam.metadataprovider.so
@@ -116,7 +116,7 @@ lib/libJpgEncPipe.so
 lib/libnvram_daemon_callback.so
 lib/libged.so
 lib/libem_usb_jni.so
-lib/libtinyalsa.so
+#lib/libtinyalsa.so
 lib/libem_wifi_jni.so
 lib/libccci_util.so
 lib/libnvram_platform.so
@@ -124,7 +124,7 @@ lib/libshowlogo.so
 lib/libMtkOmxCore.so
 lib/libvp8enc_sa.ca7.so
 lib/libmhalImageCodec.so
-lib/libaudio-resampler.so
+#lib/libaudio-resampler.so
 lib/libaudiocustparam.so
 lib/libvcodec_utility.so
 lib/libaed.so
@@ -134,16 +134,16 @@ lib/libMtkOmxApeDec.so
 lib/libem_lte_jni.so
 lib/hw/memtrack.mt6735m.so
 lib/hw/camera.mt6735m.so
-lib/hw/gralloc.default.so
-lib/hw/keystore.default.so
+#lib/hw/gralloc.default.so
+#lib/hw/keystore.default.so
 lib/hw/hwcomposer.mt6735m.so
 lib/hw/gps.mt6735m.so
 lib/hw/audio.primary.mt6735m.so
-lib/hw/vibrator.default.so
+#lib/hw/vibrator.default.so
 lib/hw/gralloc.mt6735m.so
 lib/hw/sensors.mt6735m.so
-lib/hw/local_time.default.so
-lib/hw/power.default.so
+#lib/hw/local_time.default.so
+#lib/hw/power.default.so
 lib/libcam_hwutils.so
 lib/libcam3_pipeline.so
 lib/libbt-vendor.so
@@ -162,7 +162,7 @@ lib/libmmprofile.so
 lib/libgpu_aux.so
 lib/libimageio_plat_drv.so
 lib/libmtkjpeg.so
-lib/libcurl.so
+#lib/libcurl.so
 lib/libem_bt_jni.so
 lib/libMtkOmxGsmDec.so
 lib/libblisrc32.so
@@ -208,9 +208,9 @@ vendor/lib/libwvdrm_L3.so
 vendor/lib/libwvm.so
 vendor/lib/libWVStreamControlAPI_L3.so
 vendor/lib/drm/libdrmwvmplugin.so
-vendor/lib/mediadrm/libmockdrmcryptoplugin.so
+#vendor/lib/mediadrm/libmockdrmcryptoplugin.so
 vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib/mediadrm/libdrmclearkeyplugin.so
+#vendor/lib/mediadrm/libdrmclearkeyplugin.so
 etc/audio_policy.conf
 etc/audio_device.xml
 etc/agps_profiles_conf2.xml
@@ -253,7 +253,7 @@ lib/libcam.iopipe.so
 lib/libcam.iopipe_FrmB.so
 lib/libterservice.so
 
-#lib/libmrdump.so
+lib/libmrdump.so
 
 bin/mobile_log_d
 bin/netdiag
@@ -265,8 +265,8 @@ lib/libimageio_plat_drv_FrmB.so
 lib/libcam.iopipe_FrmB.so
 lib/libfmcust.so
 
-lib/hw/audio.a2dp.default.so
-lib/hw/audio_policy.stub.so
+#lib/hw/audio.a2dp.default.so
+#lib/hw/audio_policy.stub.so
 lib/hw/lights.mt6735m.so
 lib/hw/radio.fm.mt6735m.so
 
@@ -282,3 +282,4 @@ lib/libh264enc_sb.ca7.so
 
 lib/drm/libdrmmtkplugin.so
 
+lib/libmtkplayer.so
