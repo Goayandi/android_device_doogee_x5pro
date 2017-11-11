@@ -106,10 +106,6 @@ BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/doogee/x5pro/bluetooth
 
-# Fingerprint Sensor
-VANZO_FEATURE_ADD_SILEADINC_FP := yes
-VANZO_FEATURE_FACTORYMODE_USE_ENGLISH := yes
-
 # EGL settings
 BOARD_EGL_CFG := device/doogee/x5pro/rootdir/system/lib/egl/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
