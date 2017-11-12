@@ -164,8 +164,6 @@ lib/libcam.hal3a.v3.dng.so
 lib/libcam.hal3a.v3.so
 lib/libcam.halsensor.so
 lib/libcam.iopipe.so
-lib/libcam.iopipe.so
-lib/libcam.iopipe_FrmB.so
 lib/libcam.iopipe_FrmB.so
 lib/libcam.metadata.so
 lib/libcam.metadataprovider.so
