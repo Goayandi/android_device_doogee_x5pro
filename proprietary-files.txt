@@ -136,6 +136,8 @@ lib/liba3m.so
 lib/libacdk.so
 lib/libaed.so
 lib/libamrvt.so
+lib/libamr_wrap.so
+lib/libawb_wrap.so
 lib/libaudiocompensationfilter.so
 lib/libaudiocomponentengine.so
 lib/libaudiocustparam.so
@@ -186,6 +188,7 @@ lib/libcamdrv.so
 lib/libcamdrv_FrmB.so
 lib/libcameracustom.so
 lib/libccci_util.so
+lib/libcomutils.so
 lib/libcustom_nvram.so
 lib/libcustom_prop.so
 lib/libcvsd_mtk.so
@@ -218,6 +221,9 @@ lib/libimageio.so
 lib/libimageio_FrmB.so
 lib/libimageio_plat_drv.so
 lib/libimageio_plat_drv_FrmB.so
+lib/libimsma.so
+lib/libimsma_rtp.so
+lib/libimsma_socketwrapper.so
 lib/libion_mtk.so
 lib/libm4u.so
 lib/libmal.so
@@ -265,6 +271,8 @@ lib/libpqservice.so
 lib/librilmtk.so
 lib/librilmtkmd2.so
 lib/libshowlogo.so
+lib/libsink.so
+lib/libsource.so
 lib/libspeech_enh_lib.so
 lib/libstagefrighthw.so
 lib/libterservice.so
