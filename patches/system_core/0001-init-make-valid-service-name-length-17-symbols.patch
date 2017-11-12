@@ -1,0 +1,30 @@
+From bd84fd700846edd6207f21d0c3c628dfa1fe07a5 Mon Sep 17 00:00:00 2001
+From: Yuri Konotopov <ykonotopov@gnome.org>
+Date: Sun, 12 Nov 2017 18:10:53 +0400
+Subject: [PATCH] init: make valid service name length <= 17 symbols.
+
+This is needed to make "ril-daemon-mtkmd2" work which is 17 bytes and
+hardcoded in ccci_mdinit.
+
+Change-Id: I65bd5fd4bdc96c40e2b9a1ac2f5bee75300b6946
+TODO: hack ccci_mdinit
+---
+ init/service.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/init/service.cpp b/init/service.cpp
+index 8127e708d..6ac62436b 100644
+--- a/init/service.cpp
++++ b/init/service.cpp
+@@ -852,7 +852,7 @@ void ServiceParser::EndSection() {
+ }
+ 
+ bool ServiceParser::IsValidName(const std::string& name) const {
+-    if (name.size() > 16) {
++    if (name.size() > 17) {
+         return false;
+     }
+     for (const auto& c : name) {
+-- 
+2.13.6
+
