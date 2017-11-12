@@ -1,0 +1,4 @@
+type mtk_agpsd, domain;
+type mtk_agpsd_exec, exec_type, file_type;
+
+init_daemon_domain(mtk_agpsd)

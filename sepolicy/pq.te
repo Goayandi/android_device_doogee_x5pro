@@ -1,0 +1,4 @@
+type pq, domain;
+type pq_exec, exec_type, file_type;
+
+init_daemon_domain(pq)

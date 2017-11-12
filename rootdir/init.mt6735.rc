@@ -909,6 +909,8 @@ service bootlogoupdater /system/bin/boot_logo_updater
 
 service mobile_log_d /system/bin/mobile_log_d
     class main
+    seclabel u:r:mobile_log_d:s0
+
 # MTK PR_DEBUG SWITCH
 on property:debug.MB.prdebug=1
     write /sys/kernel/debug/dynamic_debug/control "file *mediatek* +p"
@@ -949,6 +951,7 @@ service nvram_daemon /system/bin/nvram_daemon
     user root
     group system
     oneshot
+    seclabel u:r:nvram_daemon:s0
 
 service atci_service /system/bin/atci_service
     class core
@@ -996,6 +999,7 @@ service pq /system/bin/pq
     class main
     user system
     group system graphics
+    seclabel u:r:pq:s0
 
 service aal /system/bin/aal
     class main
@@ -1154,11 +1158,13 @@ service DMAgent /system/bin/dm_agent_binder
     class main
     user system
     group system cache
+    seclabel u:r:dm_agent_binder:s0
 
 service PPLAgent /system/bin/ppl_agent
     class main
     user system
     group system cache
+    seclabel u:r:ppl_agent:s0
 
 
 service cmmb /system/bin/cmmbsp
@@ -1226,6 +1232,7 @@ service agpsd /system/bin/mtk_agpsd
     socket agpsd3 stream 660 gps inet
     user gps
     group gps radio inet sdcard_r sdcard_rw misc
+    seclabel u:r:mtk_agpsd:s0
 
 service slpd /system/bin/slpd
     class main
@@ -1236,12 +1243,14 @@ service wifi2agps /system/bin/wifi2agps
     class main
     user wifi
     group gps inet
+    seclabel u:r:wifi2agps:s0
 
 service mnld /system/xbin/mnld
     class main
     user gps
     group gps inet misc sdcard_rw sdcard_r media_rw system
     socket mnld stream 660 gps system
+    seclabel u:r:mnld:s0
 
 service ipod /system/bin/ipod
     user root
@@ -1312,6 +1321,7 @@ service md_monitor /system/bin/md_monitor
 service msensord /system/bin/msensord
     class main
     oneshot
+    seclabel u:r:msensord:s0
 
 service s62xd /system/bin/s62xd
     disabled
@@ -1456,6 +1466,7 @@ service emsvr_user /system/bin/em_svr
     disabled
     user system
     group system radio diag net_bt_stack
+    seclabel u:r:em_svr:s0
 
 service emsvr /system/bin/em_svr
     disabled
@@ -1475,6 +1486,7 @@ service NvRAMAgent /system/bin/nvram_agent_binder
     class main
     user system
     group system
+    seclabel u:r:nvram_agent_binder:s0
 
 #<<hct:liuyang
 service NvRAMBackupAgent /system/bin/nvram_backup_binder
@@ -1487,16 +1499,19 @@ service thermal_manager /system/bin/thermal_manager
     class main
     user root
     oneshot
+    seclabel u:r:thermal_manager:s0
 
 service thermal /system/bin/thermal
     class main
     user system
     group system
+    seclabel u:r:thermal:s0
 
 service thermald /system/bin/thermald
     class main
     user system
     group system
+    seclabel u:r:thermald:s0
 
 service fuelgauged /system/bin/fuelgauged
     class main
@@ -1508,6 +1523,7 @@ service sn /system/bin/sn
     user system
     group system sdcard_rw
     oneshot
+    seclabel u:r:sn:s0
 
 #add for power-off alarm
 service poad /system/bin/poad
@@ -1535,12 +1551,14 @@ service MtkCodecService /system/bin/MtkCodecService
     class main
     user system
     group audio media sdcard_r
+    seclabel u:r:MtkCodecService:s0
 
 # GuiExt Server init
 service guiext-server /system/bin/guiext-server
     class main
     user system
     group system graphics
+    seclabel u:r:guiext_server:s0
 
 # OperaMax Service
 service OperaMaxSystem /system/bin/OperaMaxSystem
@@ -1639,6 +1657,7 @@ service program_binary /system/bin/program_binary_service
     user system
     group graphics
     oneshot
+    seclabel u:r:program_binary_service:s0
 
 service vtservice /system/bin/vtservice
     class main
@@ -1649,3 +1668,5 @@ service vtservice /system/bin/vtservice
     user system
     group system camera graphics inet net_admin net_raw media sdcard_rw radio sdcard_r media_rw
     ioprio rt 4
+    seclabel u:r:vtservice:s0
+    disabled

@@ -1,0 +1,15 @@
+type ccci_fsd_service, service_manager_type;
+type msensord_service, service_manager_type;
+type nvram_agent_binder_service, service_manager_type;
+type wmt_loader_service, service_manager_type;
+type ccci_mdinit_service, service_manager_type;
+type mtk_6620_launcher_service, service_manager_type;
+type nvram_daemon_service, service_manager_type;
+type terservice_service, service_manager_type;
+type dm_agent_binder_service, service_manager_type;
+type mtk_agpsd_service, service_manager_type;
+type ppl_agent_service, service_manager_type;
+type thermal_manager_service, service_manager_type;
+type netdiag_service, service_manager_type;
+type pq_service, service_manager_type;
+type wifi2agps_service, service_manager_type;

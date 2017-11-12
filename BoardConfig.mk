@@ -123,6 +123,9 @@ MTK_FM_RX_SUPPORT := yes
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
 
+# Selinux
+BOARD_SEPOLICY_DIRS += device/doogee/x5pro/sepolicy
+
 # Recovery
 TARGET_RECOVERY_FSTAB := device/doogee/x5pro/rootdir/system/etc/recovery.fstab
 

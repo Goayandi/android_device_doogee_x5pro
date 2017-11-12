@@ -1,0 +1,4 @@
+type thermal_manager, domain;
+type thermal_manager_exec, exec_type, file_type;
+
+init_daemon_domain(thermal_manager)

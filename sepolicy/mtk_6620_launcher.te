@@ -1,0 +1,5 @@
+# conn_launcher service
+type mtk_6620_launcher, domain;
+type mtk_6620_launcher_exec, exec_type, file_type;
+
+init_daemon_domain(mtk_6620_launcher)

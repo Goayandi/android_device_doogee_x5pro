@@ -1,0 +1,15 @@
+ccci_fsd            u:object_r:ccci_fsd_service:s0
+ccci_mdinit         u:object_r:ccci_mdinit_service:s0
+DMAgent             u:object_r:dm_agent_binder_service:s0
+msensord            u:object_r:msensord_service:s0
+conn_launcher       u:object_r:mtk_6620_launcher_service:s0
+agpsd               u:object_r:mtk_agpsd_service:s0
+netdiag             u:object_r:netdiag_service:s0
+NvRAMAgent          u:object_r:nvram_agent_binder_service:s0
+nvram_daemon        u:object_r:nvram_daemon_service:s0
+PPLAgent            u:object_r:ppl_agent_service:s0
+pq                  u:object_r:pq_service:s0
+terservice          u:object_r:terservice_service:s0
+thermal_manager     u:object_r:thermal_manager_service:s0
+wifi2agps           u:object_r:wifi2agps_service:s0
+wmtLoader           u:object_r:wmt_loader_service:s0

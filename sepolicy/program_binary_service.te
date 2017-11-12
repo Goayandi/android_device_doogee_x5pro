@@ -1,0 +1,4 @@
+type program_binary_service, domain;
+type program_binary_service_exec, exec_type, file_type;
+
+init_daemon_domain(program_binary_service)

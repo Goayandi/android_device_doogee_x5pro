@@ -1,0 +1,4 @@
+type wmt_loader, domain;
+type wmt_loader_exec, exec_type, file_type;
+
+init_daemon_domain(wmt_loader)

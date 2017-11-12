@@ -1,0 +1,4 @@
+type mobile_log_d, domain;
+type mobile_log_d_exec, exec_type, file_type;
+
+init_daemon_domain(mobile_log_d)

@@ -130,12 +130,14 @@ service wmtLoader /system/bin/wmt_loader
     group root
    class core
     oneshot
+    seclabel u:r:wmt_loader:s0
 
 
 service conn_launcher /system/bin/6620_launcher -p /system/etc/firmware/
     user system
     group system
     class core
+    seclabel u:r:mtk_6620_launcher:s0
 
 #
 # Connectivity related services (End)
