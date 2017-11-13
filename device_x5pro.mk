@@ -22,7 +22,7 @@ $(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 LOCAL_PATH := device/doogee/x5pro
 
-GAPPS_VARIANT := pico
+GAPPS_VARIANT := micro
 
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
