@@ -17,7 +17,7 @@
 #vendor/lib/mediadrm/libdrmclearkeyplugin.so
 #vendor/lib/mediadrm/libmockdrmcryptoplugin.so
 
-app/YGPS/YGPS.apk
+-app/YGPS/YGPS.apk
 
 bin/6620_launcher
 bin/6620_wmt_concurrency
@@ -192,7 +192,7 @@ lib/libcomutils.so
 lib/libcustom_nvram.so
 lib/libcustom_prop.so
 lib/libcvsd_mtk.so
-lib/libdpframework.so
+-lib/libdpframework.so
 lib/libdrmmtkutil.so
 lib/libdrmmtkwhitelist.so
 lib/libem_bt_jni.so

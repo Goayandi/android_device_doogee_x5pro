@@ -36,38 +36,11 @@ if [ ! -f "$HELPER" ]; then
 fi
 . "$HELPER"
 
-function write_proprietary_packages() {
-	cat << EOF >> "$ANDROIDMK"
-include \$(CLEAR_VARS)
-LOCAL_MODULE := libdpframework
-LOCAL_MODULE_CLASS := SHARED_LIBRARIES
-LOCAL_MODULE_OWNER := mtk
-LOCAL_MODULE_SUFFIX := .so
-LOCAL_PROPRIETARY_MODULE := true
-LOCAL_SRC_FILES := proprietary/lib/libdpframework.so
-include \$(BUILD_PREBUILT)
-
-include \$(CLEAR_VARS)
-LOCAL_MODULE := YGPS
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_SUFFIX := \$(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_MODULE_OWNER := Doogee
-LOCAL_MODULE_TAGS := optional
-LOCAL_PROPRIETARY_MODULE := true
-LOCAL_CERTIFICATE := platform
-LOCAL_SRC_FILES := proprietary/app/YGPS/YGPS.apk
-include \$(BUILD_PREBUILT)
-
-EOF
-}
-
 # Initialize the helper
 setup_vendor "$DEVICE" "$VENDOR" "$CM_ROOT"
 
 # Copyright headers and guards
 write_headers
-
-write_proprietary_packages
 
 write_makefiles "$MY_DIR"/proprietary-files.txt
 

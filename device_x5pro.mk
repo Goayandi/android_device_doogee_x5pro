@@ -140,7 +140,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libmrdump \
 	mrdump_tool \
-	gps.mt6735m
+	gps.mt6735m \
+	libdpframework \
+	YGPS
 
 # limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \
