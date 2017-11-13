@@ -24,10 +24,6 @@
 # include proprietary libraries and binaries
 -include vendor/doogee/x5pro/BoardConfigVendor.mk
 
-# TODO: make conditional
-# Dex preoptimization
-WITH_DEXPREOPT := true
-
 # use these headers 
 TARGET_SPECIFIC_HEADER_PATH := device/doogee/x5pro/include
 
