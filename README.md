@@ -43,8 +43,8 @@ Forked from [android_device_ark_benefit_m7](https://github.com/olegsvs/android_d
  * Compile
    ```
     source build/envsetup.sh
-    lunch lineage_w55ds-userdebug
-    brunch w55ds
+    lunch lineage_x5pro-userdebug
+    brunch x5pro
    ```
 
 ## TODO
