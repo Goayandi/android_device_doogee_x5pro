@@ -24,7 +24,7 @@ LOCAL_PATH := device/doogee/x5pro
 
 GAPPS_VARIANT := micro
 
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+PRODUCT_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal xhdpi
