@@ -81,8 +81,7 @@ PRODUCT_PACKAGES += \
 	Torch
 
 # GPS
-PRODUCT_PACKAGES += \
-	libcurl
+PRODUCT_PACKAGES += gps.$(TARGET_BOARD_PLATFORM)
 
 # FM Radio
 PRODUCT_PACKAGES += \
@@ -140,9 +139,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libmrdump \
 	mrdump_tool \
-	gps.mt6735m \
-	libdpframework \
-	YGPS
+	gps.mt6735m
 
 # limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \

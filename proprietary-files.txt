@@ -17,8 +17,6 @@
 #vendor/lib/mediadrm/libdrmclearkeyplugin.so
 #vendor/lib/mediadrm/libmockdrmcryptoplugin.so
 
--app/YGPS/YGPS.apk
-
 bin/6620_launcher
 bin/6620_wmt_concurrency
 bin/6620_wmt_lpbk
@@ -106,7 +104,6 @@ lib/drm/libdrmmtkplugin.so
 lib/egl/libGLES_mali.so
 lib/hw/audio.primary.mt6735m.so
 lib/hw/camera.mt6735m.so
-lib/hw/gps.mt6735m.so
 lib/hw/gralloc.mt6735m.so
 lib/hw/hwcomposer.mt6735m.so
 lib/hw/lights.mt6735m.so
