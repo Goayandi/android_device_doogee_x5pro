@@ -14,11 +14,13 @@ Forked from [android_device_ark_benefit_m7](https://github.com/olegsvs/android_d
  * AOSP init
 
 ### Works with issues
+ * Media speaker audio. Only right stereo channel is played.
  * Wifi. There is some NvRAM error in AP lists. However no other issues exists.
  * Live Display. Slow.
 
 ### Not works
  * FM Radio
+ * GPS
 
 ### Untested
  * Hardware codecs
