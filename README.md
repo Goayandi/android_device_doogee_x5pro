@@ -10,17 +10,15 @@ Forked from [android_device_ark_benefit_m7](https://github.com/olegsvs/android_d
  * Mobile/4G
  * Wifi AP
  * Bluetooth
+ * GPS
  * SD Card
  * AOSP init
 
 ### Works with issues
  * Media speaker audio. Only right stereo channel is played.
+ * FM Radio. Route audio to speaker does not works. There is audio pause while screen going on/off.
  * Wifi. There is some NvRAM error in AP lists. However no other issues exists.
  * Live Display. Slow.
-
-### Not works
- * FM Radio
- * GPS
 
 ### Untested
  * Hardware codecs
