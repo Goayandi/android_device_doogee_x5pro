@@ -112,8 +112,7 @@ BOARD_GPS_LIBRARIES := true
 BOARD_MEDIATEK_USES_GPS := true
 
 # FM Radio
-MTK_FM_SUPPORT := yes
-MTK_FM_RX_SUPPORT := yes
+FM_50KHZ_SUPPORT := true
 
 # Mediatek flags
 BOARD_HAS_MTK_HARDWARE := true

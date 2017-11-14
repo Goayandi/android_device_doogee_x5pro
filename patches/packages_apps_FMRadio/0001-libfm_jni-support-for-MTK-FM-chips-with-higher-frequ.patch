@@ -1,0 +1,58 @@
+From e07f7c1defecaa5c76e2aba7bce3b02060ce7a91 Mon Sep 17 00:00:00 2001
+From: Yuri Konotopov <ykonotopov@gnome.org>
+Date: Tue, 14 Nov 2017 15:24:34 +0000
+Subject: [PATCH] libfm_jni: support for MTK FM chips with higher frequency
+ (eg. MT6627)
+
+Change-Id: I1ce6c5e143be3f9149ec1382e1e2094806c9e3a8
+---
+ jni/fmr/Android.mk    | 4 ++++
+ jni/fmr/libfm_jni.cpp | 8 ++++++++
+ 2 files changed, 12 insertions(+)
+
+diff --git a/jni/fmr/Android.mk b/jni/fmr/Android.mk
+index b685b68..a89f011 100644
+--- a/jni/fmr/Android.mk
++++ b/jni/fmr/Android.mk
+@@ -16,6 +16,10 @@ LOCAL_PATH := $(call my-dir)
+ 
+ include $(CLEAR_VARS)
+ 
++ifneq ($(FM_50KHZ_SUPPORT),)
++LOCAL_CFLAGS += -DFM_50KHZ_SUPPORT
++endif
++
+ LOCAL_SRC_FILES := \
+     fmr_core.cpp \
+     fmr_err.cpp \
+diff --git a/jni/fmr/libfm_jni.cpp b/jni/fmr/libfm_jni.cpp
+index a906887..30ba2ff 100644
+--- a/jni/fmr/libfm_jni.cpp
++++ b/jni/fmr/libfm_jni.cpp
+@@ -51,7 +51,11 @@ jboolean powerUp(JNIEnv *env, jobject thiz, jfloat freq)
+     int tmp_freq;
+ 
+     LOGI("%s, [freq=%d]\n", __func__, (int)freq);
++#ifdef FM_50KHZ_SUPPORT
++    tmp_freq = (int)(freq * 100);       //Eg, 87.55 * 100 --> 8755
++#else
+     tmp_freq = (int)(freq * 10);        //Eg, 87.5 * 10 --> 875
++#endif
+     ret = FMR_pwr_up(g_idx, tmp_freq);
+ 
+     LOGD("%s, [ret=%d]\n", __func__, ret);
+@@ -73,7 +77,11 @@ jboolean tune(JNIEnv *env, jobject thiz, jfloat freq)
+     int ret = 0;
+     int tmp_freq;
+ 
++#ifdef FM_50KHZ_SUPPORT
++    tmp_freq = (int)(freq * 100);       //Eg, 87.55 * 100 --> 8755
++#else
+     tmp_freq = (int)(freq * 10);        //Eg, 87.5 * 10 --> 875
++#endif
+     ret = FMR_tune(g_idx, tmp_freq);
+ 
+     LOGD("%s, [ret=%d]\n", __func__, ret);
+-- 
+2.13.6
+
