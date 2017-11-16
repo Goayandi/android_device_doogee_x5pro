@@ -119,7 +119,7 @@ BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
 
 # Mediacodec security policy
-BOARD_SECCOMP_POLICY=$(LOCAL_PATH)/seccomp
+BOARD_SECCOMP_POLICY += device/doogee/x5pro/seccomp
 
 # Selinux
 BOARD_SEPOLICY_DIRS += device/doogee/x5pro/sepolicy
