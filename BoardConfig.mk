@@ -24,8 +24,10 @@
 # include proprietary libraries and binaries
 -include vendor/doogee/x5pro/BoardConfigVendor.mk
 
+LOCAL_PATH := device/doogee/x5pro
+
 # use these headers 
-TARGET_SPECIFIC_HEADER_PATH := device/doogee/x5pro/include
+TARGET_SPECIFIC_HEADER_PATH := $(LOCAL_PATH)/include
 
 # Link against libxlog
 TARGET_LDPRELOAD += libxlog.so:libmtk_symbols.so
@@ -70,14 +72,14 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset $(BOARD_RAMDISK_OFFSET) --tags_offset 0x0e000000
 
 # Use prebuild kernel for now
-TARGET_PREBUILT_KERNEL := device/doogee/x5pro/prebuilt/kernel
+TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/prebuilt/kernel
 
 # Build an EXT4 ROM image
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_NO_FACTORYIMAGE := true
 
 # system.prop
-TARGET_SYSTEM_PROP := device/doogee/x5pro/system.prop
+TARGET_SYSTEM_PROP := $(LOCAL_PATH)/system.prop
 
 # WiFi
 WPA_SUPPLICANT_VERSION := VER_0_8_X
@@ -91,7 +93,7 @@ WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_P2P:=P2P
 
 # RIL
-BOARD_RIL_CLASS := ../../../device/doogee/x5pro/ril/
+BOARD_RIL_CLASS := ../../../$(LOCAL_PATH)/ril/
 
 BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_CONNECTIVITY_MODULE := conn_soc
@@ -100,10 +102,10 @@ BOARD_CONNECTIVITY_MODULE := conn_soc
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_MTK := true
 BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/doogee/x5pro/bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(LOCAL_PATH)/bluetooth
 
 # EGL settings
-BOARD_EGL_CFG := device/doogee/x5pro/rootdir/system/lib/egl/egl.cfg
+BOARD_EGL_CFG := $(LOCAL_PATH)/rootdir/system/lib/egl/egl.cfg
 BOARD_EGL_WORKAROUND_BUG_10194508 := true
 USE_OPENGL_RENDERER := true
 
@@ -119,10 +121,10 @@ BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
 
 # Selinux
-BOARD_SEPOLICY_DIRS += device/doogee/x5pro/sepolicy
+BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/doogee/x5pro/rootdir/system/etc/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/system/etc/recovery.fstab
 
 # twrp
 ifneq ($(WITH_TWRP),)
@@ -140,7 +142,7 @@ TW_INTERNAL_STORAGE_PATH := "/data"
 TW_MAX_BRIGHTNESS := 255
 TW_THEME := portrait_hdpi
 
-TARGET_RECOVERY_FSTAB := device/doogee/x5pro/rootdir/twrp.fstab
+TARGET_RECOVERY_FSTAB := $(LOCAL_PATH)/rootdir/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 TARGET_USERIMAGES_USE_EXT4 := true
