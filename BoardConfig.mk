@@ -120,6 +120,9 @@ FM_50KHZ_SUPPORT := true
 BOARD_HAS_MTK_HARDWARE := true
 MTK_HARDWARE := true
 
+# Mediacodec security policy
+BOARD_SECCOMP_POLICY=$(LOCAL_PATH)/seccomp
+
 # Selinux
 BOARD_SEPOLICY_DIRS += $(LOCAL_PATH)/sepolicy
 

@@ -1,0 +1,4 @@
+# libMtkOmxVdecEx.so (_ZN10MtkOmxVdec16EnableRRPriorityE8OMX_BOOL+16)
+sched_getparam: 1
+# libbwc.so (_ZN3BWC15emi_bw_ctrl_setE16BWC_PROFILE_TYPE15BWC_VCODEC_TYPEb+198)
+fsync: 1
