@@ -121,7 +121,5 @@
 /dev/ttyACM0              0660   radio      radio
 
 /dev/Vcodec               0660   media      system
-/dev/fm                   0660   media      media
 /dev/devmap               0440   root       system
-/dev/wmtWifi              0660   system     system
 /dev/ampc0                0660   bluetooth  bluetooth
