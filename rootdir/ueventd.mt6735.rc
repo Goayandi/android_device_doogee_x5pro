@@ -120,6 +120,6 @@
 #MTK In-House TEE
 /dev/ttyACM0              0660   radio      radio
 
-/dev/Vcodec               0660   media      system
+/dev/Vcodec               0660   mediacodec      system
 /dev/devmap               0440   root       system
 /dev/ampc0                0660   bluetooth  bluetooth

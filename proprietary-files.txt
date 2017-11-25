@@ -36,7 +36,6 @@ bin/fsck_msdos_mtk
 bin/geomagneticd
 bin/gsm0710muxd
 bin/gsm0710muxdmd2
-bin/guiext-server
 bin/kpoc_charger
 bin/lcdc_screen_cap
 bin/lsm303md
@@ -208,8 +207,7 @@ lib/libfs_mgr.so
 lib/libgas.so
 lib/libged.so
 lib/libgpu_aux.so
-lib/libgralloc_extra.so
-lib/libgui_ext.so
+-lib/libgralloc_extra.so
 lib/libh264enc_sa.ca7.so
 lib/libh264enc_sb.ca7.so
 lib/libhdrproc.so
@@ -221,7 +219,7 @@ lib/libimageio_plat_drv_FrmB.so
 lib/libimsma.so
 lib/libimsma_rtp.so
 lib/libimsma_socketwrapper.so
-lib/libion_mtk.so
+-lib/libion_mtk.so
 lib/libm4u.so
 lib/libmal.so
 lib/libmal_datamngr.so

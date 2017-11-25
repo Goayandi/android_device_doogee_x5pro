@@ -139,7 +139,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 	libmrdump \
 	mrdump_tool \
-	gps.mt6735m
+	gps.mt6735m \
+	guiext-server
 
 # limit dex2oat threads to improve thermals
 PRODUCT_PROPERTY_OVERRIDES += \
