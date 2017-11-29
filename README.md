@@ -7,12 +7,13 @@ Forked from [android_device_ark_benefit_m7](https://github.com/olegsvs/android_d
 
 ## Status
 ### Works
- * Mobile/4G
- * Wifi AP
+ * AOSP init
  * Bluetooth
  * GPS
+ * Hardware codecs
+ * Mobile/4G
  * SD Card
- * AOSP init
+ * Wifi AP
 
 ### Works with issues
  * Media speaker audio. Only right stereo channel is played.
@@ -21,7 +22,6 @@ Forked from [android_device_ark_benefit_m7](https://github.com/olegsvs/android_d
  * Live Display. Slow.
 
 ### Untested
- * Hardware codecs
  * Second SIM
 
 ## How to build
