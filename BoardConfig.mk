@@ -137,9 +137,7 @@ BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_SUPPRESS_SECURE_ERASE :=  true
 
 TW_BRIGHTNESS_PATH := /sys/devices/mtk_leds@bus/leds/lcd-backlight/brightness
-TW_EXTERNAL_STORAGE_PATH := "/sdcard"
 TW_INCLUDE_CRYPTO := true
-TW_INTERNAL_STORAGE_PATH := "/data"
 TW_MAX_BRIGHTNESS := 255
 TW_THEME := portrait_hdpi
 
