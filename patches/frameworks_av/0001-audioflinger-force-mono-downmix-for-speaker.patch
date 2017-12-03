@@ -1,0 +1,30 @@
+From 737f60165cb6f709a8302ed660e4e02a1b0d49ef Mon Sep 17 00:00:00 2001
+From: Yuri Konotopov <ykonotopov@gnome.org>
+Date: Sun, 3 Dec 2017 20:54:53 +0000
+Subject: [PATCH] audioflinger: force mono downmix for speaker.
+
+Otherwise only right stereo channel is played.
+
+Change-Id: I51b70cb34996e02b671dc33bde5004c1e5ac1ffc
+---
+ services/audioflinger/Threads.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/services/audioflinger/Threads.cpp b/services/audioflinger/Threads.cpp
+index e8c80c17c..df1bfd0ed 100644
+--- a/services/audioflinger/Threads.cpp
++++ b/services/audioflinger/Threads.cpp
+@@ -3589,6 +3589,10 @@ status_t AudioFlinger::PlaybackThread::createAudioPatch_l(const struct audio_pat
+         type |= patch->sinks[i].ext.device.type;
+     }
+ 
++    if (type & AUDIO_DEVICE_OUT_SPEAKER) {
++        setMasterMono_l(true);
++    }
++
+ #ifdef ADD_BATTERY_DATA
+     // when changing the audio output device, call addBatteryData to notify
+     // the change
+-- 
+2.13.6
+
