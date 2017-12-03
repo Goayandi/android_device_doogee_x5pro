@@ -145,5 +145,5 @@ TARGET_RECOVERY_FSTAB := device/doogee/x5pro/rootdir/twrp.fstab
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun%d/file
 TARGET_USERIMAGES_USE_EXT4 := true
-TARGET_USERIMAGES_USE_F2FS:=true
+TARGET_USERIMAGES_USE_F2FS := true
 endif
