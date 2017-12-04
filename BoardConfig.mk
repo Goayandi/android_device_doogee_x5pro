@@ -129,6 +129,10 @@ TARGET_RECOVERY_FSTAB := device/doogee/x5pro/rootdir/system/etc/recovery.fstab
 
 # twrp
 ifneq ($(WITH_TWRP),)
+ifneq ($(strip $(TARGET_BUILD_VARIANT)), eng)
+$(error TWRP supports eng build variant only)
+endif
+
 RECOVERY_VARIANT := twrp
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 RECOVERY_SDCARD_ON_DATA := true
