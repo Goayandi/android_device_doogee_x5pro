@@ -132,8 +132,7 @@ PRODUCT_PACKAGES += \
 
 # MTK symbols
 PRODUCT_PACKAGES += \
-	libmtk_symbols \
-	libmtk_shyms
+	libmtk_symbols
 
 # MTK stuff
 PRODUCT_PACKAGES += \
