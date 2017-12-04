@@ -193,3 +193,5 @@ dalvik.vm.stack-trace-file=/data/anr/traces.txt
 # nS
 ro.telephony.ril_class=MT6735
 ro.telephony.ril.config=fakeiccid
+
+cm.updater.uri=https://ota.coldzone.ru/api
