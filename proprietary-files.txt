@@ -208,6 +208,9 @@ lib/libgas.so
 lib/libged.so
 lib/libgpu_aux.so
 -lib/libgralloc_extra.so
+lib/libgybeauty.so
+lib/libgybeauty420.so
+lib/libgybeauty422.so
 lib/libh264enc_sa.ca7.so
 lib/libh264enc_sb.ca7.so
 lib/libhdrproc.so
