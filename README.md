@@ -17,11 +17,11 @@ Forked from [android_device_ark_benefit_m7](https://github.com/olegsvs/android_d
 
 ### Works with issues
  * FM Radio: route audio to speaker does not works.
- * Wifi: there is some NvRAM error in AP lists. However no other issues exists.
  * Live Display: slow.
 
 ### Untested
  * Second SIM
+ * Cameras
 
 ## How to build
 
