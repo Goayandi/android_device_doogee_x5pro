@@ -27,17 +27,9 @@ WPA_SUPPL_DIR_INCLUDE += external/libnl/include
 WPA_SRC_FILE += mediatek_driver_cmd_nl80211.c
 endif
 
-ifdef CONFIG_DRIVER_WEXT
-#error doesn't support CONFIG_DRIVER_WEXT
-endif
-
 # To force sizeof(enum) = 4
 ifeq ($(TARGET_ARCH),arm)
 L_CFLAGS += -mabi=aapcs-linux
-endif
-
-ifdef CONFIG_ANDROID_LOG
-L_CFLAGS += -DCONFIG_ANDROID_LOG
 endif
 
 ########################
