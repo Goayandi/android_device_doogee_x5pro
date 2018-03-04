@@ -2,3 +2,5 @@
 sched_getparam: 1
 # libbwc.so (_ZN3BWC15emi_bw_ctrl_setE16BWC_PROFILE_TYPE15BWC_VCODEC_TYPEb+198)
 fsync: 1
+# libMtkOmxVdecEx.so (_ZN10MtkOmxVdec18ConvertFrameToYV12EPNS_13_FrmBufStructES1_8OMX_BOOL+1222)
+sched_getscheduler: 1
